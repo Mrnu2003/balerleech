@@ -127,7 +127,7 @@ async def upload_to_tg(
 
 async def upload_to_gdrive(file_upload, message):
     await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-    await message.edit_text("🔊 Now Uploading to ☁️ cloud...")
+    await message.edit_text("<b>🔊 Now Uploading to ☁️ Google Drive</b>")
     subprocess.Popen(('touch', 'rclone.conf'), stdout = subprocess.PIPE)
     with open('rclone.conf', 'a', newline="\n") as fole:
         fole.write("[DRIVE]\n")
@@ -154,7 +154,7 @@ async def upload_to_gdrive(file_upload, message):
         tam_link = requests.utils.requote_uri(indexurl)
         #s_tr = '-'*40
         await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-        await message.edit_text(f"""🤖: {file_upload} has been Uploaded successfully to your cloud 😌\n\n<b>☁️GOOGLE DRIVE URL👉</b>:  <a href="{gau_link}">FileLink</a>\n<b>ℹ️DIRECT URL👉</b>:  <a href="{tam_link}">IndexLink</a>""")
+        await message.edit_text(f"""🤖: {file_upload} has been Uploaded successfully to your cloud 😌\n\n<b>🔘GOOGLE DRIVE URL👉</b>:  <a href="{gau_link}">FileLink</a>\n<b>🔘DIRECT URL👉</b>:  <a href="{tam_link}">IndexLink</a>""")
         os.remove(file_upload)
     else:
         tt= os.path.join(destination, file_upload)
